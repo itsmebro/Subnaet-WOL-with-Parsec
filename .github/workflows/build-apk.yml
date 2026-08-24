@@ -2,7 +2,7 @@ name: Build Android APK
 
 on:
   push:
-    branches: [ "main" ] # Or master, or change to trigger on tags
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
-          cache: 'npm'
+          # Removed automatic caching to prevent the missing lock-file error
 
       - name: Setup Java JDK
         uses: actions/setup-java@v4
