@@ -1,0 +1,6 @@
+{
+  "name": "ParsecWake - Cross-Subnet WoL & Remote Gaming Manager",
+  "description": "Cross-subnet Wake-on-LAN mobile control center with Parsec remote desktop integration, subnet relay agent, magic packet generator, and gaming session launcher.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
