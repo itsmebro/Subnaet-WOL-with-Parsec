@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181824"/>
+      <stop offset="100%" stop-color="#050507"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="bolt" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Outer Rounded Container -->
+  <rect width="512" height="512" rx="128" fill="url(#bg)" stroke="#ffffff15" stroke-width="8"/>
+  
+  <!-- Subtle circular pulse ring -->
+  <circle cx="256" cy="256" r="180" fill="none" stroke="#6366f1" stroke-width="4" stroke-opacity="0.3" stroke-dasharray="12 12"/>
+  <circle cx="256" cy="256" r="130" fill="url(#glow)" fill-opacity="0.15"/>
+  
+  <!-- Lightning Bolt (WoL) -->
+  <path d="M280 96 L168 272 L248 272 L232 416 L344 240 L264 240 Z" fill="url(#bolt)" stroke="#ffffff" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>

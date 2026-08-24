@@ -34,6 +34,7 @@ import { ParsecView } from './components/ParsecView';
 import { SubnetRelayView } from './components/SubnetRelayView';
 import { GuidesView } from './components/GuidesView';
 import { TestPacketModal } from './components/TestPacketModal';
+import { ConvertAppModal } from './components/ConvertAppModal';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>('rigs');
@@ -50,6 +51,7 @@ export default function App() {
   const [editingRig, setEditingRig] = useState<GamingRig | null>(null);
   const [isAddingRig, setIsAddingRig] = useState(false);
   const [showTestModal, setShowTestModal] = useState(false);
+  const [showConvertModal, setShowConvertModal] = useState(false);
   const [showHistoryDrawer, setShowHistoryDrawer] = useState(false);
   const [pingingRigId, setPingingRigId] = useState<string | null>(null);
 
@@ -221,6 +223,7 @@ export default function App() {
         rigCount={rigs.length}
         onlineCount={onlineCount}
         onOpenTestModal={() => setShowTestModal(true)}
+        onOpenConvertModal={() => setShowConvertModal(true)}
       />
 
       {/* Main Content Area */}
@@ -426,6 +429,9 @@ export default function App() {
 
       {/* Manual Packet Tester Modal */}
       {showTestModal && <TestPacketModal onClose={() => setShowTestModal(false)} />}
+
+      {/* Convert to Native App Modal */}
+      {showConvertModal && <ConvertAppModal onClose={() => setShowConvertModal(false)} />}
     </div>
   );
 }

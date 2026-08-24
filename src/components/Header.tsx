@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, Gamepad2, Activity, Radio, Shield } from 'lucide-react';
+import { Zap, Gamepad2, Activity, Radio, Shield, Download, Smartphone } from 'lucide-react';
 import { ActiveSession } from '../types';
 
 interface HeaderProps {
@@ -7,6 +7,7 @@ interface HeaderProps {
   rigCount: number;
   onlineCount: number;
   onOpenTestModal: () => void;
+  onOpenConvertModal?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -14,6 +15,7 @@ export const Header: React.FC<HeaderProps> = ({
   rigCount,
   onlineCount,
   onOpenTestModal,
+  onOpenConvertModal,
 }) => {
   return (
     <header className="sticky top-0 z-30 bg-[#0a0a0e]/95 backdrop-blur-xl border-b border-[#ffffff10] shadow-2xl px-4 py-3">
@@ -42,22 +44,18 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Right side controls & telemetry */}
-        <div className="flex items-center gap-3">
-          {/* Network Node Status Pill */}
-          <div className="hidden sm:flex flex-col items-end mr-1">
-            <span className="text-[9px] uppercase tracking-widest text-gray-500 font-mono">Network Nodes</span>
-            <span className="text-xs font-mono text-indigo-400 font-semibold">{onlineCount}/{rigCount} Online</span>
-          </div>
-
-          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#1a1b23] border border-[#ffffff15] shadow-inner text-xs">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981] animate-pulse" />
-            <span className="text-gray-300 font-mono text-[11px] font-medium sm:hidden">
-              {onlineCount}/{rigCount}
-            </span>
-            <span className="text-emerald-400 font-mono text-[11px] font-semibold hidden sm:inline">
-              READY
-            </span>
-          </div>
+        <div className="flex items-center gap-2.5">
+          {/* Install / Convert App Button */}
+          {onOpenConvertModal && (
+            <button
+              onClick={onOpenConvertModal}
+              title="Install or Export as App (PWA, Android APK, Desktop)"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-500/15 hover:bg-indigo-500/25 active:scale-95 text-indigo-300 border border-indigo-500/30 text-xs font-mono font-bold transition-all shadow-[0_0_12px_rgba(79,70,229,0.2)]"
+            >
+              <Smartphone className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Get App</span>
+            </button>
+          )}
 
           {/* Quick Packet Test Button */}
           <button
